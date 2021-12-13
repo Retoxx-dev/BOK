@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BOK.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BOK
 {
@@ -24,6 +26,12 @@ namespace BOK
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<BOKDbContext>(options =>
+            {
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("BOKContext"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
