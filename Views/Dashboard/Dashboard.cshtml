@@ -1,0 +1,331 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/custom.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="body-overlay"></div>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Biuro Obsługi Klienta</span></h3>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                        <ul>
+                            <li style="border-top: 1px solid rgb(237,237,237); margin-top: 8px; padding-top: 8px"><a href="#"><span>Statystyki</span></a></li>
+                        </ul>
+                </li>
+                <div class="small-screen navbar-display">                   
+                    <li class="d-lg-none d-md-block d-xl-none d-sm-block">
+                        <a href="#"><i class="material-icons">manage_accounts</i><span>Użytkownik</span></a>
+                    </li>
+
+                    <li class="d-lg-none d-md-block d-xl-none d-sm-block">
+                        <a href="#"><i class="material-icons">settings</i><span>Ustawienia</span></a>
+                    </li>
+
+
+                </div>                                                                                         
+                <li class="">
+                    <a href="#"><i class="material-icons">person</i><span>Klienci</span></a>
+                    <ul>
+                        <li style="border-top: 1px solid rgb(237,237,237); margin-top: 8px; padding-top: 8px"><a href="#"><span>Opcja 1</span></a></li>
+                        <li><a href="#"><span>Opcja 2</span></a></li>
+                        <li><a href="#"><span>Opcja 3</span></a></li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#"><i class="material-icons">domain</i><span>Usługi</span></a>
+                        <ul>
+                            <li style="border-top: 1px solid rgb(237,237,237); margin-top: 8px; padding-top: 8px"><a href="#"><span>Lista Pakietów</span></a></li>
+                            <li><a href="#"><span>Zarządzanie Pakietami</span></a></li>
+                        </ul>
+                </li>
+                <li class="">
+                    <a href="#"><i class="material-icons">library_books</i><span>Kalendarz</span></a>
+                </li>
+            </ul>
+        </nav>
+        <div id="content">
+            <div class="top-navbar">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+
+                        <button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
+                            <span class="material-icons">arrow_back_ios</span>
+                        </button>
+
+                        <a class="navbar-brand" href="#"> Dashboard </a>
+
+                        <button class="d-inline-block d-lg-none ml-auto more-button" type="button"
+                            data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="material-icons">more_vert</span>
+                        </button>
+                        <div class="collapse navbar-collapse d-lg-block d-xl-block d-sm-none d-md-none d-none"
+                            id="navbarSupportedContent">
+                            <ul class="nav navbar-nav ml-auto">
+                                    
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="material-icons">person</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="material-icons">settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header">
+                                <div class="icon icon-warning">
+                                    <span class="material-icons">equalizer</span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="category"><strong>Odwiedziny</strong></p>
+                                <h3 class="card-title">70,340</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons text-info">info</i>
+                                    <a href="#pablo">Szczegółowy raport</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header">
+                                <div class="icon icon-rose">
+                                    <span class="material-icons">shopping_cart</span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="category"><strong>Zakupione pakiety</strong></p>
+                                <h3 class="card-title">102</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">local_offer</i><a href="#">Lista pakietów</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header">
+                                <div class="icon icon-success">
+                                    <span class="material-icons">
+                                        attach_money
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="category"><strong>Zysk</strong></p>
+                                <h3 class="card-title">23,100 zł</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">date_range</i><a href="#">Raport miesięczny</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card card-stats">
+                            <div class="card-header">
+                                <div class="icon icon-info">
+
+                                    <span class="material-icons">
+                                        follow_the_signs
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <p class="category"><strong>Liczba Klientów</strong></p>
+                                <h3 class="card-title">245</h3>
+                            </div>
+                            <div class="card-footer">
+                                <div class="stats">
+                                    <i class="material-icons">update</i><a href="#">Nowi klienci</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-lg-7 col-md-12">
+                        <div class="card" style="min-height: 485px">
+                            <div class="card-header card-header-text">
+                                <h4 class="card-title">Klienci</h4>
+                                <p class="category">Lista Klientów</p>
+                            </div>
+                            <div class="card-content table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Imię i nazwisko</th>
+                                            <th>Pakiet</th>
+                                            <th>Kraj</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Sylwia Gzyl</td>
+                                            <td>Standard</td>
+                                            <td>Polska</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Rafał Sarata</td>
+                                            <td>Standard</td>
+                                            <td>Polska</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Kacper Dziedzic</td>
+                                            <td>Premium</td>
+                                            <td>Polska</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Michał Garncarz</td>
+                                            <td>Premium</td>
+                                            <td>Polska</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Mateusz Gancarz</td>
+                                            <td>Standard</td>
+                                            <td>Polska</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Paweł Olszewski</td>
+                                            <td>Only Linux</td>
+                                            <td>Polska</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Dariusz Panek</td>
+                                            <td>*spanko*</td>
+                                            <td>Polska</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="card" style="min-height: 485px">
+                            <div class="card-header card-header-text">
+                                <h4 class="card-title">Aktualności</h4>
+                            </div>
+                            <div class="card-content">
+                                <div class="streamline">
+                                    <div class="sl-item sl-primary">
+                                        <div class="sl-content">
+                                            <small class="text-muted">5 mins ago</small>
+                                            <p>Sylwia Gzyl dołączył/a do BOK</p>
+                                        </div>
+                                    </div>
+                                    <div class="sl-item sl-danger">
+                                        <div class="sl-content">
+                                            <small class="text-muted">25 mins ago</small>
+                                            <p>Rafał Sarata zakupił/a pakiet Standard</p>
+                                        </div>
+                                    </div>
+                                    <div class="sl-item sl-success">
+                                        <div class="sl-content">
+                                            <small class="text-muted">40 mins ago</small>
+                                            <p>Rafał Sarata dołączył/a do BOK</p>
+                                        </div>
+                                    </div>
+                                    <div class="sl-item">
+                                        <div class="sl-content">
+                                            <small class="text-muted">45 minutes ago</small>
+                                            <p>Mateusz Gancarz opłacił/a fakturę 11/2021</p>
+                                        </div>
+                                    </div>
+                                    <div class="sl-item sl-warning">
+                                        <div class="sl-content">
+                                            <small class="text-muted">55 mins ago</small>
+                                            <p>Kacper Dziedzic dołączył/a do BOK</p>
+                                        </div>
+                                    </div>
+                                    <div class="sl-item">
+                                        <div class="sl-content">
+                                            <small class="text-muted">60 minutes ago</small>
+                                            <p>Michał Garncarz zakupił/a pakiet Premium</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">                              
+                            </div>
+                            <div class="col-md-6">
+                                <p class="copyright d-flex justify-content-end"> &copy 2021 Design by Dziedzic Kacper, Gancarz Mateusz, Garncarz Michał, Gzyl Sylwia</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $('#content').toggleClass('active');
+            });
+
+            $('.more-button,.body-overlay').on('click', function () {
+                $('#sidebar,.body-overlay').toggleClass('show-nav');
+            });
+
+        });
+    </script>
+</body>
+
+</html>
