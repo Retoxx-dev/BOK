@@ -782,7 +782,7 @@ $.validator.addMethod( "nifES", function( value, element ) {
 }, "Please specify a valid NIF number." );
 
 /*
- * Numer identyfikacji podatkowej ( NIP ) is the way tax identification used in Poland for companies
+ * Numer identyfikacji podatkowej ( NIP ) is the way tax identification used in BOKand for companies
  */
 $.validator.addMethod( "nipPL", function( value ) {
 	"use strict";

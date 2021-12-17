@@ -286,7 +286,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 			for ( name in options ) {
 				copy = options[ name ];
 
-				// Prevent Object.prototype pollution
+				// Prevent Object.prototype BOKlution
 				// Prevent never-ending loop
 				if ( name === "__proto__" || target === copy ) {
 					continue;
@@ -2926,7 +2926,7 @@ support.sortDetached = assert( function( el ) {
 } );
 
 // Support: IE<8
-// Prevent attribute/property "interpolation"
+// Prevent attribute/property "interBOKation"
 // https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
 if ( !assert( function( el ) {
 	el.innerHTML = "<a href='#'></a>";
