@@ -1,0 +1,71 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <!-- Login pic -->
+                <div class="col-md-8 col-lg-7 col-xl-6 d-none d-md-block">
+                    <img src="/img/logo_img.svg" class="img-fluid" alt="Phone image">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <div class="mb-4">
+                        <h1 class="display-1" style="text-align:center; font-weight:400;">Sign in</h1>
+                    </div>
+                    <form id="account" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <!-- Email -->
+                        <div class="form-outline mb-4">
+                            <input asp-for="Input.Email" type="email" class="form-control form-control-lg" />
+                            <label asp-for="Input.Email" class="form-label">Email address</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-outline mb-4">
+                            <input asp-for="Input.Password" type="password" class="form-control form-control-lg" />
+                            <label asp-for="Input.Password" class="form-label">Password</label>
+                        </div>
+
+                        <!-- Remember me switch -->
+                        <div class="d-flex justify-content-around align-items-center mb-4">
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <label asp-for="Input.RememberMe">
+                                        <input asp-for="Input.RememberMe" />
+                                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                    </label>
+                                </div>
+                            </div>
+                            <a href="#!">Forgot password?</a>
+                        </div>
+                        <!-- Submit button -->
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-lg" type="submit">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
