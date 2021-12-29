@@ -404,4 +404,9 @@ a.nav_link {
     .nav_mobile-icon {
         display: none;
     }
+    
+    .container {
+        width: calc(100% - var(--nav-width));
+        margin: var(--header-height) 0 0 var(--nav-width);
+            
 }
