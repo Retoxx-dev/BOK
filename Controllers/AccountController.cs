@@ -8,9 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BOK.Controllers
 {
+
     public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -46,16 +48,16 @@ namespace BOK.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(
-                    model.Email, model.Password, model.RememberMe, true);
+                    model.Email, model.Password, model.RememberMe, false);
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation(model.Email + "User logged in.");
-                    return RedirectToAction("index", "home");
+                    _logger.LogInformation(model.Email + " User logged in.");
+                    return RedirectToAction("list", "users");
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning(model.Email + " User account locked out.");
                     return RedirectToPage("./Lockout");
                 }
                 else

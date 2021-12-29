@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ApplicationUser>
+ 
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "_Layout";
+}
+
+<a asp-controller="Users" asp-action="New" class="btn btn-primary">
+    New
+</a>
+
+<table class="table table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">District</th>
+            <th scope="col">PhoneNumber</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var user in Model)
+            {
+                <tr>
+                    <th>@user.FirstName</th>
+                    <th>@user.LastName</th>
+                    <th>@user.Email</th>
+                    <th>@user.Address</th>
+                    <th>@user.City</th>
+                    <th>@user.District</th>
+                    <th>@user.PhoneNumber</th>
+                    <th>
+                        <a asp-action="Edit" asp-controller="Users" asp-route-id="@user.Id">
+                            <i class='bx bxs-edit'></i> 
+                        </a>
+                    </th>
+                    <th>
+                    <form method="post" asp-controller="Users" asp-action="Delete" asp-route-id="@user.Id">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to get rid of @user.UserName ?')">Delete</button>
+                    </form></th>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
