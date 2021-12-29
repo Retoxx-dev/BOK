@@ -18,7 +18,13 @@ namespace BOK.Models
                 {
                     UserName = "a@admin.com",
                     Email = "a@admin.com",
-                    FirstName = "Super Admin"
+                    FirstName = "Super",
+                    LastName = "Admin",
+                    PESEL = 12345678910,
+                    Address = "None",
+                    City = "None",
+                    District = "None",
+                    PostalCode = 00000
                 };
                 if (userManager.Users.All(u => u.Id != defaultUser.Id))
                 {
