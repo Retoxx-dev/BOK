@@ -1,49 +1,11 @@
-﻿document.addEventListener("DOMContentLoaded", function (event) {
-
-    const showNavbar = (toggleId, navId, bodyId, headerId) => {
-        const toggle = document.getElementById(toggleId),
-            nav = document.getElementById(navId),
-            bodypd = document.getElementById(bodyId),
-            headerpd = document.getElementById(headerId)
-
-        // Validate that all variables exist
-        if (toggle && nav && bodypd && headerpd) {
-            toggle.addEventListener('click', () => {
-                // show navbar
-                nav.classList.toggle('show')
-                // change icon
-                toggle.classList.toggle('bx-x')
-                // add padding to body
-                bodypd.classList.toggle('body-pd')
-                // add padding to header
-                headerpd.classList.toggle('body-pd')
-            })
-        }
+﻿function navMobile() {
+    let x = document.getElementById("nav_mobile-links");
+    let y = document.getElementById("header_name")
+    if (x.style.display === "block") {
+        x.style.display = "none";
+        y.style.display = "block";
+    } else {
+        x.style.display = "block";
+        y.style.display = "none";
     }
-
-    showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
-
-    /*===== LINK ACTIVE =====*/
-    const linkColor = document.querySelectorAll('.nav_link')
-
-    function colorLink() {
-        if (linkColor) {
-            linkColor.forEach(l => l.classList.remove('active'))
-            this.classList.add('active')
-        }
-    }
-    linkColor.forEach(l => l.addEventListener('click', colorLink))
-
-    // Your code to run since DOM is loaded and ready
-});
-
-$('.sidebar ul li a').click(function () {
-    var id = $(this).attr('id');
-    $('nav ul li ul.item-show-' + id).toggleClass("show");
-    $('nav ul li #' + id + ' span').toggleClass("rotate");
-
-});
-
-$('nav ul li').click(function () {
-    $(this).addClass("active").siblings().removeClass("active");
-});
+}
