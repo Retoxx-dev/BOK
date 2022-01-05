@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/wseiaspnetbok-server/databases/aspnet-BOK-94E35557-A068-4C5F-98F1-9032FB5DCE59",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:DefaultConnection",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
