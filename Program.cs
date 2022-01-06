@@ -18,13 +18,7 @@ namespace BOK
     {
         public async static Task Main(string[] args)
         {
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom
-                .Configuration(configuration)
-                .CreateLogger();
+
             try
             {
                 Log.Information("App started up");
@@ -63,10 +57,17 @@ namespace BOK
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-            .UseSerilog()
+            //.UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                    .ConfigureLogging(logging =>
+                    {
+                        logging.ClearProviders();
+                        logging.AddConsole();
+                        logging.AddAzureWebAppDiagnostics();
+                    });
+                    
                 });
     }
 }
