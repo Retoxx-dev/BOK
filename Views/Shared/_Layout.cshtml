@@ -67,6 +67,7 @@
         <a href="javascript:void(0);" class="nav_mobile-icon" onclick="navMobile()">
             <i class="fa fa-bars"></i>
         </a>
+
     </header>
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
@@ -91,12 +92,17 @@
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" onclick="sidebar()">
                     <img src="/img/user-icon.jpg" class="rounded-circle me-2">
-                        @if (User.Identity.IsAuthenticated)
-                         {
-                            <span class="nav_name">@user.FirstName @user.LastName</span>
-                         }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span class="nav_name">@user.FirstName @user.LastName</span>
+                    }
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li>
+                        
+                            <button id="myBtn" class="dropdown-item">Profile</button>
+                            
+                    </li>
                     <li>
                         <form class="form-inline" asp-controller="Account" asp-action="Logout" method="post">
                             <button type="submit" class="dropdown-item">Logout</button>
@@ -106,12 +112,60 @@
             </div>
         </nav>
     </div>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-    @await RenderSectionAsync("Scripts", required: false)
+    <div id="myModal" class="modal">
+
+        
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><img src="/img/user-icon.jpg" class="rounded-circle me-2"></p>
+            
+         
+                <form id="account" method="post">
+
+
+                    <div class="form-group row">
+                        <input type="text" value="@user.FirstName" disabled="disabled">
+                        <label>Name</label>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <input type="text" value="@user.LastName" disabled="disabled" >
+                        <label>Last Name</label>
+                    </div>
+
+                    <div class="form-group row">
+                        <input type="email" value="a@admin.com" disabled="disabled" />
+                        <label>e-mail address</label>
+                    </div>
+
+
+                </form>
+            
+        </div>
+        </div>
+        <script>    
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("myBtn");
+            var span = document.getElementsByClassName("close")[0];
+            btn.onclick = function () {
+                modal.style.display = "block";
+            }
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+        @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>
