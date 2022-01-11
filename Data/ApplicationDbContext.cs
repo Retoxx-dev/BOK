@@ -1,4 +1,4 @@
-﻿using BOK.Models;
+using BOK.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -48,5 +48,9 @@ namespace BOK.Data
                 entity.ToTable("UserTokens");
             });
         }
+
+        public DbSet<BOK.Models.Offer> Offer { get; set; }
+
+        public DbSet<BOK.Models.Order> Order { get; set; }
     }
 }
