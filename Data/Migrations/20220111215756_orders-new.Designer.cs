@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BOK.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220111012425_orders")]
-    partial class orders
+    [Migration("20220111215756_orders-new")]
+    partial class ordersnew
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
