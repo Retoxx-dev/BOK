@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BOK.Data;
 using BOK.Models;
+using Microsoft.Extensions.Logging;
 
 namespace BOK.Controllers
 {
     public class OffersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<OffersController> _logger;
 
-        public OffersController(ApplicationDbContext context)
+        public OffersController(ApplicationDbContext context,
+            ILogger<OffersController> logger)
         {
+            _logger = logger;
             _context = context;
         }
 
@@ -60,6 +64,7 @@ namespace BOK.Controllers
             {
                 _context.Add(offer);
                 await _context.SaveChangesAsync();
+                _logger.LogInformation(offer.Name + " - offer has been created");
                 return RedirectToAction(nameof(Index));
             }
             return View(offer);
@@ -98,6 +103,7 @@ namespace BOK.Controllers
                 try
                 {
                     _context.Update(offer);
+                    _logger.LogInformation(offer.Name + " - offer has been modified");
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -142,6 +148,7 @@ namespace BOK.Controllers
             var offer = await _context.Offer.FindAsync(id);
             _context.Offer.Remove(offer);
             await _context.SaveChangesAsync();
+            _logger.LogInformation(offer.Name + " - offer has been deleted");
             return RedirectToAction(nameof(Index));
         }
 

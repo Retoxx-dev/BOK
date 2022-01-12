@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BOK.Data;
 using BOK.Models;
+using Microsoft.Extensions.Logging;
 
 namespace BOK.Controllers
 {
     public class OrdersController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<OrdersController> _logger;
 
-        public OrdersController(ApplicationDbContext context)
+        public OrdersController(ApplicationDbContext context,
+            ILogger<OrdersController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Orders
@@ -63,6 +67,7 @@ namespace BOK.Controllers
             {
                 _context.Add(order);
                 await _context.SaveChangesAsync();
+                _logger.LogInformation(order.Id + " - order has been created for:" + order.FirstName + order.LastName);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OfferId"] = new SelectList(_context.Offer, "Id", "Description", order.OfferId);
@@ -103,6 +108,7 @@ namespace BOK.Controllers
                 try
                 {
                     _context.Update(order);
+                    _logger.LogInformation(order.Id + " - order has been modified for:" + order.FirstName + order.LastName);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -148,6 +154,7 @@ namespace BOK.Controllers
         {
             var order = await _context.Order.FindAsync(id);
             _context.Order.Remove(order);
+            _logger.LogInformation(order.Id + " - order has been deleted for:" + order.FirstName + order.LastName);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

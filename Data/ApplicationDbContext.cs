@@ -49,8 +49,8 @@ namespace BOK.Data
             });
         }
 
-        public DbSet<BOK.Models.Offer> Offer { get; set; }
+        public DbSet<Offer> Offer { get; set; }
 
-        public DbSet<BOK.Models.Order> Order { get; set; }
+        public DbSet<Order> Order { get; set; }
     }
 }
